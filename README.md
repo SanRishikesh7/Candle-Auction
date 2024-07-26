@@ -17,20 +17,18 @@ The `getRandomWinner(uint256 auctionId)` function generates a random value using
 uint256 randomValue = uint256(keccak256(abi.encodePacked(block.timestamp, blockhash(block.number - 1)))) % auction.highestBid;
 ```
 
-# I have another Smart Contract Using Chainlink's VRF (Verifiable Random Function) 
+# Chainlink's VRF (Verifiable Random Function) 
 
-The `CandleAuction` contract uses Chainlink's VRF (Verifiable Random Function) to ensure fair and unpredictable winner selection:
+To Insure more Randomness I have developed another Smart Contract `VRFCandleAuction.sol` where i used VRF generate random number.
+
+The `CandleAuction` contract uses Chainlink's VRF  to ensure fair and unpredictable winner selection:
 
 1. **Requesting Randomness**:
    - When an auction ends, the `endAuction(uint256 auctionId)` function requests a random number from Chainlink VRF using `requestRandomness(keyHash, fee)`.
 
 2. **Receiving Randomness**:
    - Chainlink VRF provides a random number and calls `fulfillRandomness(bytes32 requestId, uint256 randomNumber)` in the contract.
-
-3. **Selecting the Winner**:
-   - In `fulfillRandomness`, the contract checks if the random number is even. If so, the highest bid is transferred to the auctioneer, and the highest bidder is declared the winner. This ensures a fair and unpredictable outcome.
-
-This process leverages Chainlink VRF to prevent manipulation and ensure the auction results are random and fair.
+   - Which will further select the auction winner based on the generated random value.
 
 # Prerequisites
 
