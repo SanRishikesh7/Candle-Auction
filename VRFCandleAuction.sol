@@ -72,7 +72,7 @@ contract CandleAuction is VRFConsumerBase {
         emit AuctionCreated(auctionCount, msg.sender, endBlock);
     }
 
-    function placeBid(uint256 auctionId) public payable auctionOngoing(auctionId) {
+    function makeBid(uint256 auctionId) public payable auctionOngoing(auctionId) {
         Auction storage auction = auctions[auctionId];
         require(msg.value > auction.highestBid, "Bid is not higher than the current highest bid");
 
@@ -123,13 +123,5 @@ contract CandleAuction is VRFConsumerBase {
         }
 
         emit AuctionEnded(auctionId, winner, winningBid);
-    }
-
-    function returnPreviousBid(uint256 auctionId) private {
-        uint256 previousBid = bids[auctionId][msg.sender];
-        if (previousBid > 0) {
-            bids[auctionId][msg.sender] = 0;
-            payable(msg.sender).transfer(previousBid);
-        }
     }
 }

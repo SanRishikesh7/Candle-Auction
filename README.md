@@ -2,6 +2,8 @@
 
 This smart contract implements a candle auction on the blockchain, ensuring fairness and unpredictability by using randomness to select the winner.
 
+I have Developed another Smart Contract #VRFCandleAuction.sol where i have used  Chainlink's VRF (Verifiable Random Function) to generate random number
+
 ## Functions Description
 
 - **createAuction(uint256 duration)**: Creates a new auction with the specified duration.
