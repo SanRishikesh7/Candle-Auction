@@ -1,9 +1,5 @@
 # Candle Auction Smart Contract
 
-This contract implements a candle auction on the blockchain, ensuring fairness and unpredictability by using randomness to select the winner.
-
-# Candle Auction Smart Contract
-
 This smart contract implements a candle auction on the blockchain, ensuring fairness and unpredictability by using randomness to select the winner.
 
 ## Functions Description
