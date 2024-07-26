@@ -48,4 +48,6 @@ uint256 randomValue = uint256(keccak256(abi.encodePacked(block.timestamp, blockh
    
 4. Update the contractAddress from the terminal after deploying the contract and the contractABI from the CandleAuction.json file in the index.html file with the deployed contract address and ABI.
 
-6. Start a local blockchain using Ganache.
+5. Start a local blockchain using Ganache.
+
+6. Add Ganache Account to MetaMask [see here](https://dapp-world.com/smartbook/how-to-connect-ganache-with-metamask-and-deploy-smart-contracts-on-remix-without-1619847868947) 
